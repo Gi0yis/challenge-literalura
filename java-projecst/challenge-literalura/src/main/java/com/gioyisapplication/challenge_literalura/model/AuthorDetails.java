@@ -1,11 +1,25 @@
 package com.gioyisapplication.challenge_literalura.model;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+@Entity
 public class AuthorDetails {
-    private String name;
-    private Integer birthYear;
-    private Integer deathYear;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @JsonAlias("name") private String name;
+    @JsonAlias("birth_year") private Integer birthYear;
+    @JsonAlias("death_year") private Integer deathYear;
+
+    @ManyToOne
+    @JoinColumn(name = "book_id")
+    private Book book;
 
 
     public String getName() {
@@ -30,5 +44,12 @@ public class AuthorDetails {
 
     public void setDeathYear(Integer deathYear) {
         this.deathYear = deathYear;
+    }
+
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", birthYear=" + birthYear +
+                ", deathYear=" + deathYear;
     }
 }

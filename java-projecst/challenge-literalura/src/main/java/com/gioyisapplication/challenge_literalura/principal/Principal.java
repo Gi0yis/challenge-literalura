@@ -1,13 +1,18 @@
 package com.gioyisapplication.challenge_literalura.principal;
 
+import com.gioyisapplication.challenge_literalura.model.Book;
+import com.gioyisapplication.challenge_literalura.model.Data;
 import com.gioyisapplication.challenge_literalura.service.ConsumeAPI;
+import com.gioyisapplication.challenge_literalura.service.ConvertData;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Principal {
     // http://gutendex.com/books/?page=2
-    Scanner key = new Scanner(System.in);
-    ConsumeAPI consumeAPI = new ConsumeAPI();
+    private Scanner key = new Scanner(System.in);
+    private ConsumeAPI consumeAPI = new ConsumeAPI();
+    private ConvertData convertData = new ConvertData();
     private final String URL_BASE = "http://gutendex.com/books/?search=";
 
     public void showMenu() {
@@ -16,6 +21,7 @@ public class Principal {
 
             var menu = """
                     1 - Buscar libro por titulo
+                    2 - 
                     0 - Salir
                     """;
             System.out.println(menu);
@@ -28,7 +34,7 @@ public class Principal {
                     searchBookByTitle();
                     break;
                 case 0:
-                    System.out.println("Cerrando de la aplicación...");
+                    System.out.println("Cerrando la aplicación...");
                     break;
                 default:
                     System.out.println("Opción no valida, ingrese una de las opciones disponibles");
@@ -37,9 +43,24 @@ public class Principal {
     }
 
     private void searchBookByTitle() {
-        System.out.println("Ingrse el nombre del libro:");
+        System.out.println("Ingrese el nombre del libro:");
         var titleBook = key.nextLine();
-        consumeAPI.getData(URL_BASE + titleBook.replace(" ", "+"));
+
+        var json = consumeAPI.getData(URL_BASE + titleBook.replace(" ", "+"));
+
+        var serchData = convertData.getData(json, Data.class);
+
+        Optional<Book> bookOptional = serchData.results().stream()
+                .filter(b -> b.getTitle().toUpperCase().contains(titleBook.toUpperCase()))
+                .findFirst();
+
+        if (bookOptional.isPresent()) {
+            System.out.println("Libro encontrado:");
+            System.out.println(bookOptional.get());
+        } else {
+            System.out.println("Libro no encotrado");
+        }
+
     }
 
 }

@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9399bdca-515e-4605-b40a-1deebf4b8434" name="Changes" comment="Primer Commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/dto/BookDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/model/AuthorDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/model/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/service/BookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/service/ConsumeAPI.java" afterDir="false" />
+    <list default="true" id="9399bdca-515e-4605-b40a-1deebf4b8434" name="Changes" comment="Estructura del poyecto">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/model/Data.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/service/ConvertData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/service/IConvertData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../git-y-github/sistema-de-registro" beforeDir="false" afterPath="$PROJECT_DIR$/../../git-y-github/sistema-de-registro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/ChallengeLiteraluraApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/ChallengeLiteraluraApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/model/AuthorDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/model/AuthorDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/model/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/principal/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/principal/Principal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gioyisapplication/challenge_literalura/service/BookService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +24,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
         <option value="Record" />
       </list>
@@ -56,6 +57,7 @@
     "Application.Principal.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/lgio5/OneDrive/Documentos/java-projecst/challenge-literalura"
   }
@@ -97,11 +99,20 @@
       <option name="project" value="LOCAL" />
       <updated>1718583498607</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Estructura del poyecto">
+      <option name="closed" value="true" />
+      <created>1718592473376</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718592473376</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Primer Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primer Commit" />
+    <MESSAGE value="Estructura del poyecto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Estructura del poyecto" />
   </component>
 </project>
