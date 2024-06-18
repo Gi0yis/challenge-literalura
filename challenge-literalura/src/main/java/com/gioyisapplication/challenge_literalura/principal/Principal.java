@@ -21,7 +21,6 @@ public class Principal {
 
             var menu = """
                     1 - Buscar libro por titulo
-                    2 - 
                     0 - Salir
                     """;
             System.out.println(menu);

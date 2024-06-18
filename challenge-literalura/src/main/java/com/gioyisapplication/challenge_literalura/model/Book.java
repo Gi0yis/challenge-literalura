@@ -15,18 +15,17 @@ public class Book {
     private Long id;
     @JsonAlias("title") private String title;
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
-    private AuthorDetails authorDetails;
-    @JsonAlias("authors") private List<AuthorDetails> author;
+    @JsonAlias("authors") private List<AuthorDetails> authors;
     @JsonAlias("languages") List<String> languages;
     @JsonAlias("download_count") private Integer downloadCount;
 
 
-    public List<AuthorDetails> getAuthor() {
-        return author;
+    public List<AuthorDetails> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(List<AuthorDetails> author) {
-        this.author = author;
+    public void setAuthor(List<AuthorDetails> authors) {
+        this.authors = authors;
     }
 
     public List<String> getLanguages() {
@@ -56,7 +55,7 @@ public class Book {
     @Override
     public String toString() {
         return "title='" + title + '\'' +
-                ", author=" + author +
+                ", author=" + authors +
                 ", languages=" + languages +
                 ", downloadCount=" + downloadCount;
     }
