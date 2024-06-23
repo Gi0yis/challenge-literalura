@@ -8,25 +8,27 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
-@Table(name = "Books")
+@Table(name = "Books", uniqueConstraints = @UniqueConstraint(name = "title_unique", columnNames = "title"))
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long bookId;
+
+    @Column(unique = true)
     @JsonAlias("title") private String title;
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonAlias("authors") private List<AuthorDetails> authors;
-    @JsonAlias("languages") List<String> languages;
+
+    @ElementCollection
+    @JsonAlias("languages") private List<String> languages;
+
     @JsonAlias("download_count") private Integer downloadCount;
 
-
-    public List<AuthorDetails> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthor(List<AuthorDetails> authors) {
-        this.authors = authors;
-    }
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "author_book",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id")
+    )
+    @JsonAlias("authors") private List<Author> authors;
 
     public List<String> getLanguages() {
         return languages;
@@ -34,6 +36,26 @@ public class Book {
 
     public void setLanguages(List<String> languages) {
         this.languages = languages;
+    }
+
+    public void setAuthor(List<Author> authors) {
+        this.authors = authors;
+    }
+
+    public List<Author> getAuthors() {
+        return authors;
+    }
+
+    public Long getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
+    }
+
+    public void setAuthors(List<Author> authors) {
+        this.authors = authors;
     }
 
     public String getTitle() {
@@ -51,6 +73,7 @@ public class Book {
     public void setDownloadCount(Integer downloadCount) {
         this.downloadCount = downloadCount;
     }
+
 
     @Override
     public String toString() {

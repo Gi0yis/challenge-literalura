@@ -4,22 +4,26 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
-public class AuthorDetails {
+@Table(name = "authors")
+public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long authorsId;
 
     @JsonAlias("name") private String name;
+
     @JsonAlias("birth_year") private Integer birthYear;
     @JsonAlias("death_year") private Integer deathYear;
 
-    @ManyToOne
-    @JoinColumn(name = "book_id")
-    private Book book;
+    @ManyToMany(mappedBy = "authors", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+   //        joinColumns = @JoinColumn(name = "author_id"),
+   //         inverseJoinColumns = @JoinColumn(name = "book_id")
+    //)
+    private List<Book> books;
 
 
     public String getName() {
@@ -52,4 +56,5 @@ public class AuthorDetails {
                 ", birthYear=" + birthYear +
                 ", deathYear=" + deathYear;
     }
+
 }
