@@ -133,8 +133,8 @@ public class Principal {
             Integer downloadCount = (Integer) book[2];
 
             System.out.println("-".repeat(50));
-            System.out.println("Title: " + title);
-            System.out.println("Author: " + authorName);
+            System.out.println("Titulo: " + title);
+            System.out.println("Autor: " + authorName);
             System.out.println("Lenguaje: " + languages);
             System.out.println("Descargas: " + downloadCount);
             System.out.println("-".repeat(50));
@@ -151,7 +151,7 @@ public class Principal {
             System.out.println("-".repeat(50));
             System.out.println("Nombre: " + name);
             System.out.println("Fecha de nacimiento: " + birthYear);
-            System.out.println("Fecha de moricion: " + deathYear);
+            System.out.println("Fecha de muerte: " + deathYear);
             System.out.println("-".repeat(50));
 
         }
@@ -171,10 +171,10 @@ public class Principal {
                 String title = (String) author[3];
 
                 System.out.println("-".repeat(50));
-                System.out.println("Name: " + name);
-                System.out.println("Birth Year: " + birthYear);
-                System.out.println("Death Year: " + deathYear);
-                System.out.println("Book: " + title);
+                System.out.println("Nombre: " + name);
+                System.out.println("Fecha de nacimiento: " + birthYear);
+                System.out.println("fecha de muerte: " + deathYear);
+                System.out.println("Libros: " + title);
                 System.out.println("-".repeat(50));
             }
         } catch (InputMismatchException e) {
@@ -216,8 +216,8 @@ public class Principal {
             Integer downloadCount = (Integer) book[2];
 
             System.out.println("-".repeat(65));
-            System.out.println("Title: " + title);
-            System.out.println("Author: " + authorName);
+            System.out.println("Titulo: " + title);
+            System.out.println("Autor: " + authorName);
             System.out.println("Lenguaje: " + languages);
             System.out.println("Descargas: " + downloadCount);
             System.out.println("-".repeat(65));
